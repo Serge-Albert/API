@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="but">PressStart</button>
+    <div id="container"></div>
+    <script>
+        document.getElementById("but").onclick = () => {
+            alert(123)
+            fetch("https://jsonplaceholder.typicode.com/users")
+                .then(res => res.json())
+                .then((res) => {
+                    console.log(res);
+                    res.forEach(element => {
+                        document.getElementById("container").innerHTML += element.name + ", " + element.email + "<br>"
+                    });
+                })
+
+        }
+    </script>
+</body>
+
+</html>
